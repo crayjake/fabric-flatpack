@@ -9,26 +9,26 @@ At the moment the overworld is the only place that is flat. I am unsure what wou
 Shipwrecks and geodes also generate correctly (pretty much everything, except for the janky examples below). Also the mansion is kinda janky, but it's completely above ground.
 | Feature | Image |
 | ------- | ----- |
-| village |  ![village](https://github.com/crayjake/flatpack/blob/d502af3e6b934651d85f7a74d185eb2ee284cbed/images/village.png) |
-| desert_village | ![desert_village](https://github.com/crayjake/flatpack/blob/b506174efd10f0ca3ebe531bb83642b92221c754/images/desert_village.png) |
-| igloo | ![igloo](https://github.com/crayjake/flatpack/blob/b506174efd10f0ca3ebe531bb83642b92221c754/images/igloo.png) |
-| jungle_temple | ![jungle_temple](https://github.com/crayjake/flatpack/blob/b506174efd10f0ca3ebe531bb83642b92221c754/images/jungle_temple.png) |
-| mansion | ![mansion](https://github.com/crayjake/flatpack/blob/b506174efd10f0ca3ebe531bb83642b92221c754/images/mansion.png) |
-| pillager_outpost | ![pillager_outpost](https://github.com/crayjake/flatpack/blob/b506174efd10f0ca3ebe531bb83642b92221c754/images/pillager.png) |
-| ruined_portal | ![ruined_portal](https://github.com/crayjake/flatpack/blob/b506174efd10f0ca3ebe531bb83642b92221c754/images/ruined_portal.png) |
-| swamp_hut | ![swamp_hut](https://github.com/crayjake/flatpack/blob/b506174efd10f0ca3ebe531bb83642b92221c754/images/swamp_hut.png) |
-| stronghold | ![stronghold](https://github.com/crayjake/flatpack/blob/b506174efd10f0ca3ebe531bb83642b92221c754/images/stronghold2.png) |
+| village |  ![village](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/village.png) |
+| desert_village | ![desert_village](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/desert_village.png) |
+| igloo | ![igloo](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/igloo.png) |
+| jungle_temple | ![jungle_temple](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/jungle_temple.png) |
+| mansion | ![mansion](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/mansion.png) |
+| pillager_outpost | ![pillager_outpost](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/pillager.png) |
+| ruined_portal | ![ruined_portal](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/ruined_portal.png) |
+| swamp_hut | ![swamp_hut](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/swamp_hut.png) |
+| stronghold | ![stronghold](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/stronghold2.png) |
 
 ### Janky features 🥴
 | Jank | Description | Image | 
 | ---- | ----------- | ----- | 
-| desert_temple | Spawns underground, with spiral like feature above ground (pretty cool...) | ![desert_temple_above](https://github.com/crayjake/flatpack/blob/b506174efd10f0ca3ebe531bb83642b92221c754/images/janky_desert_pyramid1.png) ![desert_temple_below](https://github.com/crayjake/flatpack/blob/b506174efd10f0ca3ebe531bb83642b92221c754/images/janky_desert_pyramid2.png) |
-| village | Some houses spawn incorrectly but still better than vanilla eh? | ![village](https://github.com/crayjake/flatpack/blob/b506174efd10f0ca3ebe531bb83642b92221c754/images/janky_village.png) |
-| trees | Especially above jungles this is common (explained in bugs below) | ![tree](https://github.com/crayjake/flatpack/blob/b506174efd10f0ca3ebe531bb83642b92221c754/images/janky_tree.png) |
+| desert_temple | Spawns underground, with spiral like feature above ground (pretty cool...) | ![desert_temple_above](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_desert_pyramid1.png) ![desert_temple_below](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_desert_pyramid2.png) |
+| village | Some houses spawn incorrectly but still better than vanilla eh? | ![village](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_village.png) |
+| trees | Especially above jungles this is common (explained in bugs below) | ![tree](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_tree.png) |
 
 ### Cool artifact 😎
 Interestingly my generation leaves behind bedrock caves (i.e. caves made out of bedrock) below the bedrock layer (I believe there may be entrances without needing to break bedrock). These will not affect performance as mobs will not be able to spawn on bedrock, but they look awesome (and are spawnproof).
-![bedrock_caves](https://github.com/crayjake/flatpack/blob/b506174efd10f0ca3ebe531bb83642b92221c754/images/bedrock_caves.png)
+![bedrock_caves](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/bedrock_caves.png)
 
 ## Known bugs 🐞
  - There was a lighting bug, which I believe is now fixed (let me know if you get any crashes: NullPointerException something to do with chunk sections and nibbles).
