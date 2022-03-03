@@ -14,7 +14,7 @@ Shipwrecks and geodes also generate correctly (pretty much everything, except fo
 | igloo | ![igloo](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/igloo.png) |
 | jungle_temple | ![jungle_temple](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/jungle_temple.png) |
 | mansion | ![mansion](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/mansion.png) |
-| pillager_outpost | ![pillager_outpost](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/pillager.png) |
+| pillager_outpost | ![pillager_outpost](https://github.com/crayjake/fabric-flatpack/blob/562c3015d950ef7d8ae31817881d506153c62002/images/pillager2.png) |
 | ruined_portal | ![ruined_portal](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/ruined_portal.png) |
 | swamp_hut | ![swamp_hut](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/swamp_hut.png) |
 | stronghold | ![stronghold](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/stronghold2.png) |
