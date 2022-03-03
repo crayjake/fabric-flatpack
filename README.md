@@ -18,10 +18,10 @@ I think all above ground features are placed correctly/show up on the surface in
 ### Janky Generation 🥴
 | Jank | Description | Image | 
 | ---- | ----------- | ----- | 
-| desert_temple | Spawns underground, with spiral like feature above ground (pretty cool...) | ![desert_temple_above](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_desert_pyramid1.png) ![desert_temple_below](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_desert_pyramid2.png) |
-| village | Some houses spawn incorrectly but still better than vanilla eh? | ![village](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_village.png) |
-| trees | Especially above jungles this is common (explained in bugs below) | ![tree](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_tree.png) |
+| desert_temple | Spawns in the ground, at the surface | ![desert_temple_above](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_desert_pyramid1.png) ![desert_temple_below](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_desert_pyramid2.png) |
+| village | Some houses spawn incorrectly | ![village](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_village.png) |
+| trees | Trees are annoying | ![tree](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_tree.png) |
 
 ### Bedrock Caves
-Interestingly my generation leaves behind bedrock caves (i.e. caves made out of bedrock) below the bedrock layer (I believe there may be entrances without needing to break bedrock). These will not affect performance as mobs will not be able to spawn on bedrock, but they look awesome (and are spawnproof).
+These spawn below the base bedrock level (y = -64 is still the bottom of the world) - a happy accident as a result of raising the initial bedrock. These caves are essentially spawn proof. I plan to add configuration/settings i.e. to toggle these on/off.
 ![bedrock_caves](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/bedrock_caves.png)
