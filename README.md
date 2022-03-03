@@ -1,5 +1,5 @@
 # Flatpack - A superflat mod that piggybacks vanilla generation
-At the moment the overworld is the only flat dimension. This is very early in development so there may be crashes/bugs.
+The overworld is the only flat dimension. This is very early in development so there may be crashes/bugs.
 
 ### Working Generation 😍
 I think all above ground features are placed correctly/show up on the surface in some way. Unwanted behaviour is listed below
