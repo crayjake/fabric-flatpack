@@ -1,12 +1,8 @@
 # Flatpack - A superflat mod that piggybacks vanilla generation
-## Setup
-Download the latest \*.jar (not \*\_sources.jar)
+The overworld is the only flat dimension. This is very early in development so there may be crashes/bugs.
 
-## Features
-At the moment the overworld is the only place that is flat. I am unsure what would be good for the nether and end dimensions. This is still very early on in development so there may be crashes/bugs and definitely some jank (arguably less so than vanilla superflat...).
-
-### Working features 😍
-Shipwrecks and geodes also generate correctly (pretty much everything, except for the janky examples below). Also the mansion is kinda janky, but it's completely above ground.
+### Working Generation 😍
+I think all above ground features are placed correctly/show up on the surface in some way. Unwanted behaviour is listed below
 | Feature | Image |
 | ------- | ----- |
 | village |  ![village](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/village.png) |
@@ -19,30 +15,13 @@ Shipwrecks and geodes also generate correctly (pretty much everything, except fo
 | swamp_hut | ![swamp_hut](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/swamp_hut.png) |
 | stronghold | ![stronghold](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/stronghold2.png) |
 
-### Janky features 🥴
+### Janky Generation 🥴
 | Jank | Description | Image | 
 | ---- | ----------- | ----- | 
-| desert_temple | Spawns underground, with spiral like feature above ground (pretty cool...) | ![desert_temple_above](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_desert_pyramid1.png) ![desert_temple_below](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_desert_pyramid2.png) |
-| village | Some houses spawn incorrectly but still better than vanilla eh? | ![village](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_village.png) |
-| trees | Especially above jungles this is common (explained in bugs below) | ![tree](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_tree.png) |
+| desert_temple | Spawns in the ground, at the surface | ![desert_temple_above](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_desert_pyramid1.png) ![desert_temple_below](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_desert_pyramid2.png) |
+| village | Some houses spawn incorrectly | ![village](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_village.png) |
+| trees | Trees are annoying | ![tree](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/janky_tree.png) |
 
-### Cool artifact 😎
-Interestingly my generation leaves behind bedrock caves (i.e. caves made out of bedrock) below the bedrock layer (I believe there may be entrances without needing to break bedrock). These will not affect performance as mobs will not be able to spawn on bedrock, but they look awesome (and are spawnproof).
+### Bedrock Caves
+These spawn below the base bedrock level (y = -64 is still the bottom of the world) - a happy accident as a result of raising the initial bedrock. These caves are essentially spawn proof. I plan to add configuration/settings i.e. to toggle these on/off.
 ![bedrock_caves](https://github.com/crayjake/fabric-flatpack/blob/d56aeb3f51316c38c8e9c075a7818041694be6aa/images/bedrock_caves.png)
-
-## Known bugs 🐞
- - There was a lighting bug, which I believe is now fixed (let me know if you get any crashes: NullPointerException something to do with chunk sections and nibbles).
- - The janky villages/desert_temples/trees all stems from a generation problem. This mod is implemented using configured features. This gives us control (chunk by chunk) at any given stage in the generation process (top - bottom : first - last):
-     - RAW_GENERATION
-     - LAKES
-     - LOCAL_MODIFICATIONS
-     - UNDERGROUND_STRUCTURES
-     - SURFACE_STRUCTURES
-     - STRONGHOLDS
-     - UNDERGROUND_ORES
-     - UNDERGROUND_DECORATION
-     - FLUID_SPRINGS
-     - VEGETAL_DECORATION
-     - TOP_LAYER_MODIFICATION
-
-We are currently using SURFACE_STRUCTURES. The issue arises due to a single chunk going through all stages before the next chunk (maybe not always). If a tree is generated in a chunk we have flattened, but overlaps into one we have not yet flattened this means the tree is in an unnatural position on the land. In addition to this, when we come to process this new chunk, the tree has affected the heightmap >:( !!! The current work around is almost there, but I will probably need to implement something very different to actually fix the problem.
