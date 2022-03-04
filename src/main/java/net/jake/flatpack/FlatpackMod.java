@@ -1,37 +1,32 @@
 package net.jake.flatpack;
 
 // client
-import net.minecraft.client.world.GeneratorType;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 
 // util
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 
 // world gen
 import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.GeneratorOptions;
 import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.chunk.*;
 import net.minecraft.world.gen.decorator.*;
 import net.minecraft.world.gen.feature.*;
 
 // fabric
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 
 // flatpack
-import net.jake.flatpack.mixin.GeneratorTypeAccessor;
+import org.slf4j.Logger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class FlatpackMod implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("flatpack");
-	public static boolean isFLATPACK = false;
 	public static int height = 100;
 
 	private static final Feature<SuperflatFeatureConfig> SUPERFLAT = new SuperflatFeature(SuperflatFeatureConfig.CODEC);
@@ -69,18 +64,9 @@ public class FlatpackMod implements ModInitializer {
 				REGISTRY_PLACED.getValue(), SUPERFLAT_PLACED);
 
 
-		// create and register flatpack generator type
-		final GeneratorType FLATPACK = new GeneratorType("flatpack"){
-
-			protected ChunkGenerator getChunkGenerator(DynamicRegistryManager registryManager, long seed) {
-				if(!FlatpackMod.isFLATPACK) { FlatpackMod.isFLATPACK = true; }
-				// only add the superflat structure if we are retrieving flatpack generator
-				BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.SURFACE_STRUCTURES, REGISTRY_PLACED); // consider looking at gen step
-
-				return GeneratorOptions.createOverworldGenerator(registryManager, seed);
-			}
-		};
-		GeneratorTypeAccessor.getValues().add(0, FLATPACK);}
+		// add structure to all biomes
+		BiomeModifications.addFeature(BiomeSelectors.all(), GenerationStep.Feature.SURFACE_STRUCTURES, REGISTRY_PLACED); // was: VEGETAL_DECORATION
+	}
 }
 
 

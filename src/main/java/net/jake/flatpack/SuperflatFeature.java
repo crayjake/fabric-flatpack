@@ -20,6 +20,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
 
+
 public class SuperflatFeature extends Feature<SuperflatFeatureConfig> {
     public SuperflatFeature(Codec<SuperflatFeatureConfig> configCodec) {
         super(configCodec);
@@ -37,18 +38,19 @@ public class SuperflatFeature extends Feature<SuperflatFeatureConfig> {
         BlockPos pos = context.getOrigin();
         Chunk chunk = context.getWorld().getChunk(pos);
 
-        // turn off lighting while we manipulate chunk
         chunk.setLightOn(false);
+
+        int x = chunk.getPos().getStartX();
+        int z = chunk.getPos().getStartZ();
 
         for (int c_x = 0; c_x <= 15; c_x++) {
             for (int c_z = 0; c_z <= 15; c_z++) {
-                int x = chunk.getPos().getStartX() + c_x;
-                int z = chunk.getPos().getStartZ() + c_z;
 
-                int top = world.getTopY(Heightmap.Type.WORLD_SURFACE, x, z);
-                int top_wg = world.getTopY(Heightmap.Type.WORLD_SURFACE_WG, x, z);
 
-                BlockPos position = new BlockPos(x, top_wg, z);
+                int top = world.getTopY(Heightmap.Type.WORLD_SURFACE, x + c_x, z + c_z);
+                int top_wg = world.getTopY(Heightmap.Type.WORLD_SURFACE_WG, x + c_x, z + c_z);
+
+                BlockPos position = new BlockPos(x + c_x, top_wg, z + c_z);
 
                 // get desiredHeight from config
                 int desiredHeight = config.worldHeight().getValue();
@@ -69,7 +71,7 @@ public class SuperflatFeature extends Feature<SuperflatFeatureConfig> {
                         if (Math.abs(top - top_wg) > Math.abs(diff) && i + diff > top_wg) {
                             // do nothing? i.e leave trees but still move villages
                         } else {
-                            ReplaceBlock(world, state, position, i, diff, blockStateFlag);
+                            ReplaceBlock(chunk, world, state, position, i, diff, blockStateFlag);
                         }
                     }
                 }
@@ -84,39 +86,37 @@ public class SuperflatFeature extends Feature<SuperflatFeatureConfig> {
                         if (Math.abs(top - top_wg) > Math.abs(diff) && i + diff > top_wg) {
                             // do nothing? i.e leave trees but still move villages
                         } else {
-                            ReplaceBlock(world, state, position, i, diff, blockStateFlag);
+                            ReplaceBlock(chunk, world, state, position, i, diff, blockStateFlag);
                         }
                     }
                 }
             }
-
         }
 
-        // turn lighting back on
         chunk.setLightOn(true);
 
         return true;
     }
 
-    public void ReplaceBlock(StructureWorldAccess world, BlockState state, BlockPos position, int i, int diff, int blockStateFlag) {
+    public void ReplaceBlock(Chunk chunk, StructureWorldAccess world, BlockState state, BlockPos position, int i, int diff, int blockStateFlag) {
         // check if we are copying a block entity
         if (state.hasBlockEntity()) {
             // get block entity
             BlockEntity entity = world.getBlockEntity(position.withY(i + diff));
-            if (entity == null) { return; }
 
             // set new block state (from the entities cached state)
             world.setBlockState(position.withY(i), entity.getCachedState(), blockStateFlag);
 
             // get the newly spawned block entity
             BlockEntity blockEntity = world.getBlockEntity(position.withY(i));
+            if (blockEntity == null) { return; }
+
             // copy over the nbt
             blockEntity.readNbt(entity.createNbt());
-
             // remove old entity
             entity.markRemoved();
         } else {
-            world.setBlockState(position.withY(i), state, blockStateFlag);
+            chunk.setBlockState(position.withY(i), state, false);
         }
     }
 }
