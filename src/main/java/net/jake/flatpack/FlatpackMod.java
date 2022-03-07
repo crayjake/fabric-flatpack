@@ -65,7 +65,7 @@ public class FlatpackMod implements ModInitializer {
 
 
 		// add structure to all biomes
-		BiomeModifications.addFeature(BiomeSelectors.all(), GenerationStep.Feature.SURFACE_STRUCTURES, REGISTRY_PLACED); // was: VEGETAL_DECORATION
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.SURFACE_STRUCTURES, REGISTRY_PLACED); // was: VEGETAL_DECORATION
 	}
 }
 
